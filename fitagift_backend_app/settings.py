@@ -163,3 +163,10 @@ DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+INSTALLED_APPS = INSTALLED_APPS + ('fitagift_backend_app',)
+INSTALLED_APPS = INSTALLED_APPS + ('south',)
+INSTALLED_APPS = INSTALLED_APPS + ('tastypie',)
+import os.path
+TEMPLATE_DIRS = TEMPLATE_DIRS + (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
+INSTALLED_APPS = INSTALLED_APPS + ('django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions','django.contrib.messages','django.contrib.staticfiles',)
+MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + ('django.middleware.common.CommonMiddleware','django.contrib.sessions.middleware.SessionMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware','django.contrib.messages.middleware.MessageMiddleware',)
