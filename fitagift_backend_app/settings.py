@@ -175,7 +175,7 @@ INSTALLED_APPS = INSTALLED_APPS + ('tastypie',)
 INSTALLED_APPS = INSTALLED_APPS + ('grappelli',)
 import os.path
 TEMPLATE_DIRS = TEMPLATE_DIRS + (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
-INSTALLED_APPS = INSTALLED_APPS + ('django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions','django.contrib.messages','django.contrib.staticfiles', 'gunicorn', 'mptt')
+INSTALLED_APPS = INSTALLED_APPS + ('django.contrib.admin','django.contrib.auth','django.contrib.contenttypes','django.contrib.sessions','django.contrib.messages','django.contrib.staticfiles', 'gunicorn')
 MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + ('django.middleware.common.CommonMiddleware','django.contrib.sessions.middleware.SessionMiddleware','django.contrib.auth.middleware.AuthenticationMiddleware','django.contrib.messages.middleware.MessageMiddleware',)
 
 #for s3

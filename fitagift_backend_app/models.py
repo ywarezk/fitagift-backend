@@ -67,6 +67,9 @@ class Question(NerdeezModel):
     search_questions = models.CharField(max_length=300, blank=True, null=True, default=None)
     next_question = models.ForeignKey('self',related_name='next_question')'''
     
+    def __unicode__(self):
+        return self.title
+    
 class Answer(NerdeezModel):
     '''
     answer to a question
@@ -75,6 +78,9 @@ class Answer(NerdeezModel):
     goto_question = models.ForeignKey(Question, related_name='next_question', blank=True, null=True, default=None)
     belong_to_question = models.ForeignKey(Question, related_name='answers', blank=True, null=True, default=None)
     words = models.CharField(max_length=300, blank=True, null=True, default=None)
+    
+    def __unicode__(self):
+        return self.title
     
 
 #==========================================
