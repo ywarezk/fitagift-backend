@@ -1,18 +1,42 @@
-from django.conf.urls import patterns, include, url
+'''
+our server urls are defined in this page
+Created on July 26th, 2013
 
-# Uncomment the next two lines to enable the admin:
+@author: Yariv Katz
+@version: 1.0
+@copyright: nerdeez
+'''
+
+#===============================================================================
+# begin imports
+#===============================================================================
+
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from tastypie.api import Api
+from fitagift_backend_app.fitagift_api.api import *
+import fitagift_backend_app.views
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+
+#===============================================================================
+# end imports
+#===============================================================================
+
+#enable admin
 admin.autodiscover()
 
+#register rest urls
+v1_api = Api(api_name='v1')
+v1_api.register(QuestionResource())
+v1_api.register(AnswerResource())
+
+#register urls
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'fitagift_backend_app.views.home', name='home'),
-    # url(r'^fitagift_backend_app/', include('fitagift_backend_app.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    # enable admin
     url(r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
+    
+    #urls for tastypie
+    (r'^api/', include(v1_api.urls)),
 )
