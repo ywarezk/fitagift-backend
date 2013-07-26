@@ -51,9 +51,6 @@ class Question(NerdeezModel):
     title = models.CharField(max_length=300, blank=False, null=False, default='')
     text = models.TextField(blank=False, null=False)
     grade = models.IntegerField(default=0)
-    '''answers = models.ForeignKey(ContentType, default=None)
-    search_questions = models.CharField(max_length=300, blank=True, null=True, default=None)
-    next_question = models.ForeignKey('self',related_name='next_question')'''
     
     def __unicode__(self):
         return self.title
