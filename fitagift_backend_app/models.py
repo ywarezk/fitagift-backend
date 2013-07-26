@@ -35,18 +35,6 @@ class NerdeezModel(models.Model):
     class Meta:
         abstract = True
         
-"""class Answer(NerdeezModel):
-    '''
-    abstract class for answer options to fitagift options
-    '''
-    
-    title = models.CharField(max_length=1000, blank=False, null=False)
-    goto_question = models.ForeignKey('fitagift_backend_app.Question', related_name='redirect_question', blank=True, null=True, default=None)
-    words = models.CharField(max_length=300, blank=True, null=True, default=None)
-    
-    class Meta:
-        abstract = True"""
-
 #==========================================
 # end abstact models
 #==========================================
@@ -77,7 +65,9 @@ class Answer(NerdeezModel):
     title = models.CharField(max_length=1000, blank=False, null=False)
     goto_question = models.ForeignKey(Question, related_name='next_question', blank=True, null=True, default=None)
     belong_to_question = models.ForeignKey(Question, related_name='answers', blank=True, null=True, default=None)
+    answer_to_question_relevent = models.ForeignKey(Question, related_name='relevent_question', blank=True, null=True, default=None)
     words = models.CharField(max_length=300, blank=True, null=True, default=None)
+    query_relevent_question = models.CharField(max_length=500, blank=True, null=True, default=None)
     
     def __unicode__(self):
         return self.title
