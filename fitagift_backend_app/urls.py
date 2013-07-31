@@ -30,6 +30,8 @@ admin.autodiscover()
 v1_api = Api(api_name='v1')
 v1_api.register(QuestionResource())
 v1_api.register(AnswerResource())
+v1_api.register(FlatpageResource())
+v1_api.register(UtilitiesResource())
 
 #register urls
 urlpatterns = patterns('',
@@ -39,4 +41,8 @@ urlpatterns = patterns('',
     
     #urls for tastypie
     (r'^api/', include(v1_api.urls)),
+    
+    #urls for the cross domain comunications
+    ('^$', fitagift_backend_app.views.porthole),
+    ('^proxy/', fitagift_backend_app.views.proxy),
 )

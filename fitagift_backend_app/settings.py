@@ -183,3 +183,6 @@ STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_ACCESS_KEY_ID = os.environ['FITAGIFT_ENV_AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY = os.environ['FITAGIFT_ENV_AWS_SECRET_ACCESS_KEY']
 AWS_STORAGE_BUCKET_NAME = os.environ['FITAGIFT_ENV_AWS_STORAGE_BUCKET_NAME']
+
+#when sending mail the user will see this address
+FROM_EMAIL_ADDRESS = 'noreply@nerdeez.com'

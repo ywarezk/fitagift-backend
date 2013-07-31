@@ -44,6 +44,20 @@ class ApiTest(ResourceTestCase):
         resp = self.api_client.get('/api/v1/answer/', format='json', data={})
         self.assertHttpOK(resp)
         
+    def test_flatpage(self):
+        '''
+        make sure get command works on flatpage url
+        '''
+        resp = self.api_client.get('/api/v1/flatpage/', format='json', data={})
+        self.assertHttpOK(resp)
+        
+    def test_contactus(self):
+        '''
+        test send mail
+        '''
+        resp = self.api_client.post('/api/v1/utilities/contact/', format='json', data={'mail': 'mail', 'message': 'testmessage'})
+        self.assertHttpAccepted(resp)
+        
 #===============================================================================
 # end testing
 #===============================================================================
