@@ -131,7 +131,7 @@ the api for things that are not attached to models:
         
         return self.create_response(request, {
                     'success': True,
-                    'message': None,
+                    'message': 'Successfully sent contact message',
                     }, HttpAccepted )
 
 #===============================================================================
