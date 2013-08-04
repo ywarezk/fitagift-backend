@@ -68,7 +68,7 @@ class QuestionResource(NerdeezResource):
     '''
     rest api for the question models
     '''
-    
+    answers = fields.ToManyField('fitagift_backend_app.fitagift_api.api.AnswerResource', 'answers', full=True, null=True)
     class Meta(NerdeezResource.Meta):
         queryset = Question.objects.all()
         

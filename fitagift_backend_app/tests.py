@@ -35,6 +35,9 @@ class ApiTest(ResourceTestCase):
         
         resp = self.api_client.get('/api/v1/question/', format='json', data={})
         self.assertHttpOK(resp)
+        obj = self.deserialize(resp)['objects'][0]
+        answers = obj['answers']
+        self.assertEqual(len(answers),2)
         
     def test_answer(self):
         '''
