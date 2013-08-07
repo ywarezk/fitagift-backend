@@ -77,7 +77,7 @@ class AnswerResource(NerdeezResource):
     '''
     rest api for the answer model
     '''
-    goto_question = fields.ToOneField('fitagift_backend_app.fitagift_api.api.QuestionResource', 'goto_question', full=False, null=True)
+    goto_question = fields.ToOneField('fitagift_backend_app.fitagift_api.api.QuestionResource', 'goto_question', full=True, null=True)
     answer_to_question_relevent = fields.ToOneField('fitagift_backend_app.fitagift_api.api.QuestionResource', 'answer_to_question_relevent', full=False, null=True)
     class Meta(NerdeezResource.Meta):
         queryset = Answer.objects.all()
