@@ -79,9 +79,19 @@ class AnswerResource(NerdeezResource):
     '''
     goto_question = fields.ToOneField('fitagift_backend_app.fitagift_api.api.QuestionResource', 'goto_question', full=True, null=True)
     answer_to_question_relevent = fields.ToOneField('fitagift_backend_app.fitagift_api.api.QuestionResource', 'answer_to_question_relevent', full=False, null=True)
-    belong_to_question = fields.ToOneField('fitagift_backend_app.fitagift_api.api.QuestionResource', 'belong_to_question', full=False, null=True)
+    
     class Meta(NerdeezResource.Meta):
         queryset = Answer.objects.all()
+        
+    def dehydrate(self, bundle):
+        '''
+        will switch the relations to questions with numbers
+        '''
+        if 'goto_question' in bundle.data and bundle.data['goto_question'] != None:
+            bundle.data['goto_question'] = bundle.data['goto_question']['id']
+            
+        if 'answer_to_question_relevent' in bundle.data and bundle.data['answer_to_question_relevent'] != None:
+            bundle.data['answer_to_question_relevent'] = bundle.data['answer_to_question_relevent']['id']
         
 class FlatpageResource(NerdeezResource):
     '''
