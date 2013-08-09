@@ -92,6 +92,8 @@ class AnswerResource(NerdeezResource):
             
         if 'answer_to_question_relevent' in bundle.data and bundle.data['answer_to_question_relevent'] != None:
             bundle.data['answer_to_question_relevent'] = bundle.data['answer_to_question_relevent']['id']
+            
+        return bundle
         
 class FlatpageResource(NerdeezResource):
     '''
