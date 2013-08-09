@@ -65,6 +65,7 @@ class Answer(NerdeezModel):
     answer_to_question_relevent = models.ForeignKey(Question, related_name='relevent_question', blank=True, null=True, default=None)
     words = models.CharField(max_length=300, blank=True, null=True, default=None)
     query_relevent_question = models.CharField(max_length=500, blank=True, null=True, default=None)
+    icon_class = models.CharField(max_length=100, blank=True , null=True, default=None)
     
     def __unicode__(self):
         return self.title
