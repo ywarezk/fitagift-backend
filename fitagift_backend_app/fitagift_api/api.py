@@ -89,11 +89,11 @@ class AnswerResource(NerdeezResource):
         '''
         if 'goto_question' in bundle.data and bundle.data['goto_question'] != None:
             print bundle.data['goto_question']
-            id = bundle.data['goto_question']['id']
+            id = bundle.data['goto_question'].data['id']
             bundle.data['goto_question'] = id
             
         if 'answer_to_question_relevent' in bundle.data and bundle.data['answer_to_question_relevent'] != None:
-            id = bundle.data['answer_to_question_relevent']['id']
+            id = bundle.data['answer_to_question_relevent'].data['id']
             bundle.data['answer_to_question_relevent'] = id
             
         return bundle
