@@ -19,6 +19,25 @@ import datetime
 # end imports
 #==========================================
 
+
+#===============================================================================
+# begin constants
+#===============================================================================
+
+QUESTION_TYPE_CHOICES = (
+                   (1, 'Buttons'),
+                   (2, 'Combobox'),
+                   (3, 'Textfield'),
+                   (4, 'Textfield completion')
+                   )
+
+DEFAULT_QUESTION_TYPE_CHOICE = 1
+
+
+#===============================================================================
+# end constants
+#===============================================================================
+
 #==========================================
 # begin abstact models
 #==========================================
@@ -51,7 +70,7 @@ class Question(NerdeezModel):
     title = models.CharField(max_length=300, blank=False, null=False, default='')
     text = models.TextField(blank=False, null=False)
     grade = models.IntegerField(default=0)
-    
+    question_type = models.IntegerField(choices = QUESTION_TYPE_CHOICES, default = DEFAULT_QUESTION_TYPE_CHOICE, blank=False, null=False)
     def __unicode__(self):
         return self.title
     
