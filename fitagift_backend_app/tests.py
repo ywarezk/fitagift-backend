@@ -61,6 +61,14 @@ class ApiTest(ResourceTestCase):
         resp = self.api_client.post('/api/v1/utilities/contact/', format='json', data={'mail': 'mail', 'message': 'testmessage'})
         self.assertHttpAccepted(resp)
         
+    def test_answer_relations(self):
+        '''
+        test that we return numbers instead of full relationships
+        '''
+        resp = self.api_client.get('/api/v1/question/', format='json', data={})
+        question1 = self.deserialize(resp)['objects'][0]
+        self.assertEqual(question1['answers'][0]['goto_question'], 2)
+        
 #===============================================================================
 # end testing
 #===============================================================================

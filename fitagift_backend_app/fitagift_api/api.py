@@ -88,10 +88,13 @@ class AnswerResource(NerdeezResource):
         will switch the relations to questions with numbers
         '''
         if 'goto_question' in bundle.data and bundle.data['goto_question'] != None:
-            bundle.data['goto_question'] = bundle.data['goto_question']['id']
+            print bundle.data['goto_question']
+            id = bundle.data['goto_question']['id']
+            bundle.data['goto_question'] = id
             
         if 'answer_to_question_relevent' in bundle.data and bundle.data['answer_to_question_relevent'] != None:
-            bundle.data['answer_to_question_relevent'] = bundle.data['answer_to_question_relevent']['id']
+            id = bundle.data['answer_to_question_relevent']['id']
+            bundle.data['answer_to_question_relevent'] = id
             
         return bundle
         
