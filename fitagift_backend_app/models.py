@@ -86,6 +86,8 @@ class Answer(NerdeezModel):
     query_relevent_question = models.CharField(max_length=500, blank=True, null=True, default=None)
     icon_class = models.CharField(max_length=100, blank=True , null=True, default=None)
     is_other = models.BooleanField(default=False)
+    placeholder = models.CharField(max_length=200, default=None, blank=True, null=True)
+    
     
     def __unicode__(self):
         return self.title
