@@ -85,6 +85,7 @@ class Answer(NerdeezModel):
     words = models.CharField(max_length=300, blank=True, null=True, default=None)
     query_relevent_question = models.CharField(max_length=500, blank=True, null=True, default=None)
     icon_class = models.CharField(max_length=100, blank=True , null=True, default=None)
+    is_other = models.BooleanField(default=False)
     
     def __unicode__(self):
         return self.title
