@@ -31,6 +31,7 @@ class ApiTest(ResourceTestCase):
     def test_question(self):
         '''
         test that the question api is working
+        test that answers are returned according to their grade
         '''
         
         resp = self.api_client.get('/api/v1/question/', format='json', data={})
@@ -38,6 +39,9 @@ class ApiTest(ResourceTestCase):
         obj = self.deserialize(resp)['objects'][0]
         answers = obj['answers']
         self.assertEqual(len(answers),2)
+        self.assertEqual(answers[0]['grade'], 10)
+        self.assertEqual(answers[1]['grade'], 0)
+        
         
     def test_answer(self):
         '''

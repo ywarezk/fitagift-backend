@@ -87,7 +87,7 @@ class Answer(NerdeezModel):
     icon_class = models.CharField(max_length=100, blank=True , null=True, default=None)
     is_other = models.BooleanField(default=False)
     placeholder = models.CharField(max_length=200, default=None, blank=True, null=True)
-    
+    grade = models.IntegerField(default=0)
     
     def __unicode__(self):
         return self.title

@@ -68,7 +68,10 @@ class QuestionResource(NerdeezResource):
     '''
     rest api for the question models
     '''
-    answers = fields.ToManyField('fitagift_backend_app.fitagift_api.api.AnswerResource', 'answers', full=True, null=True)
+    answers = fields.ToManyField('fitagift_backend_app.fitagift_api.api.AnswerResource', 
+                                 full=True, 
+                                 null=True,
+                                 attribute=lambda bundle: bundle.obj.answers.order_by('-grade'))
     class Meta(NerdeezResource.Meta):
         queryset = Question.objects.all()
         ordering = ['grade']
@@ -81,7 +84,7 @@ class AnswerResource(NerdeezResource):
     answer_to_question_relevent = fields.ToOneField('fitagift_backend_app.fitagift_api.api.QuestionResource', 'answer_to_question_relevent', full=False, null=True)
     
     class Meta(NerdeezResource.Meta):
-        queryset = Answer.objects.all()
+        queryset = Answer.objects.all().order_by('-grade')
         
     def dehydrate(self, bundle):
         '''

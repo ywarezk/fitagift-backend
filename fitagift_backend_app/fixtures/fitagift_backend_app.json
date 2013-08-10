@@ -48,7 +48,8 @@
         "creation_date": "2013-07-22T16:34:32Z", 
         "words": "", 
         "query_relevent_question": null, 
-        "goto_question": 2
+        "goto_question": 2,
+        "grade": 10
     }
 },
 {
@@ -62,7 +63,8 @@
         "creation_date": "2013-07-22T16:35:13Z", 
         "words": "", 
         "query_relevent_question": null, 
-        "goto_question": 2
+        "goto_question": 2,
+        "grade": 0
     }
 },
 {
